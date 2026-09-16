@@ -1,0 +1,1773 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌿 Wild One — First Birthday</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Bebas+Neue&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Baloo 2", sans-serif;
+    background: #102b1b;
+    color: #fff8d8;
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   COLORS
+===================================================== */
+
+:root {
+    --jungle: #102b1b;
+    --deep-jungle: #06150d;
+    --leaf: #2f6336;
+    --leaf-light: #75a94a;
+    --cream: #fff3c4;
+    --gold: #e7ad3c;
+    --orange: #c96b32;
+    --brown: #653e24;
+}
+
+/* =====================================================
+   OPENING SCREEN
+===================================================== */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(circle at center, #285f34 0%, #102b1b 45%, #030b06 100%);
+
+    cursor: pointer;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+#intro.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-content {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+
+    animation: introFloat 2s ease-in-out infinite;
+}
+
+.intro-animal {
+    font-size: 110px;
+    filter: drop-shadow(0 15px 15px rgba(0,0,0,.4));
+}
+
+.intro-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: clamp(65px, 16vw, 130px);
+    letter-spacing: 7px;
+    color: var(--cream);
+    line-height: .8;
+}
+
+.intro-subtitle {
+    margin-top: 20px;
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: .75;
+}
+
+.open-button {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 14px 30px;
+
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 100px;
+
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    animation: pulseButton 1.8s infinite;
+}
+
+@keyframes introFloat {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes pulseButton {
+    0%,100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(255,255,255,0);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 30px rgba(255,220,120,.3);
+    }
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    min-height: 100svh;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #527b3f 0%,
+            #274c2b 35%,
+            #102b1b 70%,
+            #06150d 100%
+        );
+}
+
+/* glowing jungle moon/sun */
+
+.sun {
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: 13%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: #f2c65c;
+
+    box-shadow:
+        0 0 30px #f2c65c,
+        0 0 100px rgba(242,198,92,.4);
+
+    opacity: .8;
+
+    animation: sunPulse 4s ease-in-out infinite;
+}
+
+@keyframes sunPulse {
+
+    0%,100% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.08);
+    }
+}
+
+/* =====================================================
+   HERO CONTENT
+===================================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 20;
+
+    width: min(900px, 95%);
+
+    padding: 40px 20px;
+
+    animation: heroIn 1.5s ease;
+}
+
+@keyframes heroIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(70px) scale(.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.kicker {
+    font-size: 16px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #e8c765;
+}
+
+.wild-title {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: clamp(
+        100px,
+        25vw,
+        270px
+    );
+
+    line-height: .65;
+
+    letter-spacing: 5px;
+
+    color: var(--cream);
+
+    text-shadow:
+        5px 5px 0 #172e18,
+        10px 10px 0 rgba(0,0,0,.15);
+
+    animation: wildBounce 3s ease-in-out infinite;
+}
+
+.one {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(
+        70px,
+        15vw,
+        150px
+    );
+
+    font-style: italic;
+
+    color: #e7ad3c;
+
+    display: block;
+
+    margin-top: 20px;
+
+    text-shadow:
+        0 5px 0 #704421,
+        0 15px 30px rgba(0,0,0,.25);
+
+    animation: oneWiggle 2s ease-in-out infinite;
+}
+
+@keyframes wildBounce {
+
+    0%,100% {
+        transform: rotate(-2deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(2deg) scale(1.03);
+    }
+}
+
+@keyframes oneWiggle {
+
+    0%,100% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+}
+
+.baby-name {
+
+    font-size: clamp(25px, 5vw, 40px);
+
+    font-weight: 800;
+
+    margin-top: 30px;
+
+    color: #fff4c8;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.hero-date {
+
+    margin-top: 10px;
+
+    font-size: 20px;
+
+    color: #d9e0ad;
+}
+
+/* =====================================================
+   JUNGLE VINES
+===================================================== */
+
+.vine {
+    position: absolute;
+    z-index: 30;
+
+    top: -20px;
+
+    width: 140px;
+    height: 430px;
+
+    border-left: 7px solid #315c30;
+
+    border-radius: 50%;
+
+    transform-origin: top center;
+
+    pointer-events: none;
+}
+
+.vine.left {
+    left: -45px;
+    transform: rotate(15deg);
+    animation: vineSwing 5s ease-in-out infinite;
+}
+
+.vine.right {
+    right: -45px;
+    transform: rotate(-15deg);
+    animation: vineSwing 5s ease-in-out infinite reverse;
+}
+
+@keyframes vineSwing {
+
+    0%,100% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(25deg);
+    }
+}
+
+.vine.right {
+    animation-name: vineSwingRight;
+}
+
+@keyframes vineSwingRight {
+
+    0%,100% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(-25deg);
+    }
+}
+
+/* leaves attached to vines */
+
+.vine-leaf {
+    position: absolute;
+    font-size: 48px;
+}
+
+.vine-leaf:nth-child(1) {
+    top: 80px;
+    left: -30px;
+    transform: rotate(-30deg);
+}
+
+.vine-leaf:nth-child(2) {
+    top: 170px;
+    left: 35px;
+    transform: rotate(30deg);
+}
+
+.vine-leaf:nth-child(3) {
+    top: 260px;
+    left: -25px;
+    transform: rotate(-25deg);
+}
+
+.vine-leaf:nth-child(4) {
+    top: 340px;
+    left: 40px;
+    transform: rotate(25deg);
+}
+
+/* =====================================================
+   ANIMATED JUNGLE ANIMALS
+===================================================== */
+
+.animal {
+    position: absolute;
+
+    z-index: 15;
+
+    font-size: 90px;
+
+    user-select: none;
+
+    filter:
+        drop-shadow(0 15px 12px rgba(0,0,0,.3));
+}
+
+.lion {
+    left: 4%;
+    bottom: 13%;
+
+    animation:
+        animalJump 3.5s ease-in-out infinite;
+}
+
+.monkey {
+    right: 5%;
+    top: 24%;
+
+    animation:
+        monkeySwing 3s ease-in-out infinite;
+}
+
+.giraffe {
+    left: 4%;
+    top: 23%;
+
+    animation:
+        giraffeMove 5s ease-in-out infinite;
+}
+
+.tiger {
+    right: 3%;
+    bottom: 10%;
+
+    animation:
+        tigerBounce 2.8s ease-in-out infinite;
+}
+
+.elephant {
+    bottom: 4%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 75px;
+
+    animation:
+        elephantWalk 4s ease-in-out infinite;
+}
+
+@keyframes animalJump {
+
+    0%,100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-25px) rotate(4deg);
+    }
+}
+
+@keyframes monkeySwing {
+
+    0%,100% {
+        transform: rotate(-12deg);
+    }
+
+    50% {
+        transform: rotate(12deg);
+    }
+}
+
+@keyframes giraffeMove {
+
+    0%,100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(20px);
+    }
+}
+
+@keyframes tigerBounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes elephantWalk {
+
+    0%,100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* =====================================================
+   FLOATING LEAVES
+===================================================== */
+
+.falling-leaf {
+
+    position: absolute;
+
+    z-index: 12;
+
+    font-size: 30px;
+
+    pointer-events: none;
+
+    animation:
+        fallingLeaf linear infinite;
+}
+
+@keyframes fallingLeaf {
+
+    0% {
+        transform:
+            translateY(-10vh)
+            translateX(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(80px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-80px)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+/* =====================================================
+   FIREFLIES
+===================================================== */
+
+.firefly {
+
+    position: absolute;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #ffe889;
+
+    box-shadow:
+        0 0 8px #ffe889,
+        0 0 20px #ffe889;
+
+    animation:
+        fireflyMove 5s ease-in-out infinite;
+}
+
+@keyframes fireflyMove {
+
+    0%,100% {
+        opacity: .2;
+        transform: translate(0,0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(30px,-40px);
+    }
+}
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.explore {
+
+    display: inline-block;
+
+    margin-top: 35px;
+
+    padding: 16px 32px;
+
+    border-radius: 50px;
+
+    background: #e7ad3c;
+
+    color: #24351c;
+
+    text-decoration: none;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.3);
+
+    transition: .3s;
+}
+
+.explore:hover {
+
+    transform:
+        translateY(-5px)
+        scale(1.05);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.4);
+}
+
+/* =====================================================
+   SECTION
+===================================================== */
+
+section {
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section-dark {
+    background:
+        linear-gradient(
+            180deg,
+            #102b1b,
+            #07170d
+        );
+}
+
+.section-light {
+    background: #f4edce;
+    color: #263b25;
+}
+
+.section-title {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: clamp(50px, 10vw, 90px);
+
+    letter-spacing: 3px;
+
+    line-height: .9;
+
+    margin-bottom: 20px;
+}
+
+.section-text {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    opacity: .8;
+}
+
+/* =====================================================
+   BIRTHDAY CARD
+===================================================== */
+
+.wild-card {
+
+    max-width: 800px;
+
+    margin: 45px auto 0;
+
+    padding: 55px 30px;
+
+    border-radius: 35px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #355f34,
+            #17351f
+        );
+
+    border:
+        2px solid rgba(255,255,255,.1);
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.3);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.wild-card::before {
+
+    content: "🌿";
+
+    position: absolute;
+
+    font-size: 150px;
+
+    top: -50px;
+    right: -30px;
+
+    opacity: .15;
+
+    transform: rotate(20deg);
+}
+
+.wild-card::after {
+
+    content: "🌿";
+
+    position: absolute;
+
+    font-size: 150px;
+
+    bottom: -70px;
+    left: -30px;
+
+    opacity: .15;
+
+    transform: rotate(-20deg);
+}
+
+.number {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 130px;
+
+    line-height: .7;
+
+    color: #e7ad3c;
+
+    text-shadow:
+        5px 5px 0 #603b22;
+}
+
+.wild-card h3 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 35px;
+
+    margin: 25px 0 10px;
+}
+
+.wild-card p {
+
+    max-width: 550px;
+
+    margin: auto;
+
+    opacity: .8;
+
+    font-size: 18px;
+}
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown-section {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #426d39,
+            #102b1b 70%
+        );
+}
+
+.countdown {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 40px;
+}
+
+.count {
+
+    width: 105px;
+    height: 105px;
+
+    border-radius: 25px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.15);
+
+    backdrop-filter: blur(10px);
+
+    animation:
+        countFloat 3s ease-in-out infinite;
+}
+
+.count:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.count:nth-child(3) {
+    animation-delay: .6s;
+}
+
+.count:nth-child(4) {
+    animation-delay: .9s;
+}
+
+.count strong {
+    font-size: 35px;
+    color: #e7ad3c;
+}
+
+.count span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: .7;
+}
+
+@keyframes countFloat {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* =====================================================
+   DETAILS
+===================================================== */
+
+.details-grid {
+
+    max-width: 1000px;
+
+    margin: 50px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.detail {
+
+    background: #fff9df;
+
+    padding: 40px 20px;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 35px rgba(50,40,20,.1);
+
+    transition: .4s;
+}
+
+.detail:hover {
+
+    transform:
+        translateY(-12px)
+        rotate(1deg);
+}
+
+.detail-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation:
+        iconBounce 2s infinite;
+}
+
+.detail h3 {
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+
+    color: #284329;
+}
+
+.detail p {
+
+    color: #657051;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+}
+
+@keyframes iconBounce {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* =====================================================
+   RSVP
+===================================================== */
+
+.rsvp {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dca85a,
+            #b76535
+        );
+
+    color: #fff7d7;
+
+    overflow: hidden;
+}
+
+.rsvp::before {
+
+    content: "🐒 🌿 🦁 🌿 🐘 🌿 🦒";
+
+    position: absolute;
+
+    width: 100%;
+
+    top: 15px;
+    left: 0;
+
+    font-size: 40px;
+
+    opacity: .2;
+
+    word-spacing: 30px;
+
+    animation:
+        jungleMove 15s linear infinite;
+}
+
+@keyframes jungleMove {
+
+    from {
+        transform: translateX(-20%);
+    }
+
+    to {
+        transform: translateX(20%);
+    }
+}
+
+.rsvp-button {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 17px 45px;
+
+    background: #18361e;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 100px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.25);
+
+    transition: .3s;
+}
+
+.rsvp-button:hover {
+
+    transform:
+        scale(1.08)
+        rotate(-2deg);
+
+    background: #0b2111;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    position: relative;
+
+    padding: 70px 20px;
+
+    text-align: center;
+
+    background: #06150d;
+
+    overflow: hidden;
+}
+
+.footer-animals {
+
+    font-size: 60px;
+
+    margin-bottom: 20px;
+
+    letter-spacing: 15px;
+
+    animation:
+        footerAnimals 4s ease-in-out infinite;
+}
+
+@keyframes footerAnimals {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+footer h2 {
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 35px;
+
+    color: #e7ad3c;
+
+    margin-bottom: 8px;
+}
+
+footer p {
+
+    opacity: .6;
+
+    font-size: 16px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .sun {
+
+        width: 120px;
+        height: 120px;
+
+        top: 12%;
+    }
+
+    .wild-title {
+
+        font-size:
+            clamp(
+                100px,
+                29vw,
+                180px
+            );
+    }
+
+    .one {
+
+        font-size: 75px;
+    }
+
+    .baby-name {
+
+        font-size: 23px;
+    }
+
+    .hero-date {
+
+        font-size: 17px;
+    }
+
+    .animal {
+
+        font-size: 55px;
+    }
+
+    .lion {
+
+        left: -10px;
+        bottom: 8%;
+    }
+
+    .monkey {
+
+        right: -5px;
+        top: 20%;
+    }
+
+    .giraffe {
+
+        left: -12px;
+        top: 14%;
+    }
+
+    .tiger {
+
+        right: -10px;
+        bottom: 8%;
+    }
+
+    .elephant {
+
+        font-size: 50px;
+        bottom: 3%;
+    }
+
+    .vine {
+
+        width: 90px;
+    }
+
+    .section-title {
+
+        font-size: 52px;
+    }
+
+    .details-grid {
+
+        grid-template-columns: 1fr;
+
+        max-width: 420px;
+    }
+
+    .detail {
+
+        padding: 30px 20px;
+    }
+
+    .count {
+
+        width: 76px;
+        height: 80px;
+
+        border-radius: 18px;
+    }
+
+    .count strong {
+
+        font-size: 25px;
+    }
+
+    .count span {
+
+        font-size: 9px;
+    }
+
+    section {
+
+        padding: 75px 18px;
+    }
+
+    .wild-card {
+
+        padding: 45px 20px;
+    }
+
+    .number {
+
+        font-size: 100px;
+    }
+
+    .intro-animal {
+
+        font-size: 80px;
+    }
+
+    .intro-title {
+
+        font-size: 75px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     OPENING SCREEN
+===================================================== -->
+
+<div id="intro">
+
+    <div class="intro-content">
+
+        <div class="intro-animal">
+            🦁
+        </div>
+
+        <div class="intro-title">
+            WILD ONE
+        </div>
+
+        <div class="intro-subtitle">
+            An untamed first birthday adventure
+        </div>
+
+        <div class="open-button">
+            TAP TO ENTER THE JUNGLE 🌿
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+    <div class="sun"></div>
+
+
+    <!-- vines -->
+
+    <div class="vine left">
+
+        <div class="vine-leaf">🌿</div>
+        <div class="vine-leaf">🍃</div>
+        <div class="vine-leaf">🌿</div>
+        <div class="vine-leaf">🍃</div>
+
+    </div>
+
+    <div class="vine right">
+
+        <div class="vine-leaf">🌿</div>
+        <div class="vine-leaf">🍃</div>
+        <div class="vine-leaf">🌿</div>
+        <div class="vine-leaf">🍃</div>
+
+    </div>
+
+
+    <!-- animals -->
+
+    <div class="animal lion">
+        🦁
+    </div>
+
+    <div class="animal monkey">
+        🐒
+    </div>
+
+    <div class="animal giraffe">
+        🦒
+    </div>
+
+    <div class="animal tiger">
+        🐯
+    </div>
+
+    <div class="animal elephant">
+        🐘
+    </div>
+
+
+    <!-- falling leaves -->
+
+    <div class="falling-leaf"
+         style="left:8%; animation-duration:8s;">
+        🍃
+    </div>
+
+    <div class="falling-leaf"
+         style="left:23%; animation-duration:11s; animation-delay:2s;">
+        🌿
+    </div>
+
+    <div class="falling-leaf"
+         style="left:47%; animation-duration:9s; animation-delay:1s;">
+        🍂
+    </div>
+
+    <div class="falling-leaf"
+         style="left:72%; animation-duration:12s; animation-delay:3s;">
+        🍃
+    </div>
+
+    <div class="falling-leaf"
+         style="left:90%; animation-duration:7s; animation-delay:1s;">
+        🌿
+    </div>
+
+
+    <!-- fireflies -->
+
+    <div class="firefly"
+         style="left:15%; top:35%; animation-delay:.2s;">
+    </div>
+
+    <div class="firefly"
+         style="left:28%; top:60%; animation-delay:1s;">
+    </div>
+
+    <div class="firefly"
+         style="left:70%; top:35%; animation-delay:2s;">
+    </div>
+
+    <div class="firefly"
+         style="left:82%; top:65%; animation-delay:.7s;">
+    </div>
+
+    <div class="firefly"
+         style="left:55%; top:25%; animation-delay:1.5s;">
+    </div>
+
+
+    <!-- main content -->
+
+    <div class="hero-content">
+
+        <div class="kicker">
+            Welcome to the Jungle
+        </div>
+
+        <div class="wild-title">
+            WILD
+        </div>
+
+        <span class="one">
+            One!
+        </span>
+
+
+        <!-- CHANGE NAME -->
+
+        <div class="baby-name">
+            Baby [NAME]'s 1st Birthday
+        </div>
+
+
+        <!-- CHANGE DATE -->
+
+        <div class="hero-date">
+            Saturday · October 24 · 2026
+        </div>
+
+
+        <a href="#story" class="explore">
+            LET'S GO WILD 🐾
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     STORY
+===================================================== -->
+
+<section class="section-dark" id="story">
+
+    <h2 class="section-title">
+        ONE WILD YEAR
+    </h2>
+
+    <p class="section-text">
+
+        Twelve months of tiny adventures,
+        giant smiles, late-night cuddles,
+        messy meals and unforgettable memories.
+
+        <br><br>
+
+        Now our little explorer is turning ONE
+        and we're throwing the wildest celebration yet!
+
+    </p>
+
+
+    <div class="wild-card">
+
+        <div class="number">
+            1
+        </div>
+
+        <h3>
+            One Tiny Explorer.
+        </h3>
+
+        <p>
+            One huge personality.
+            One incredible year.
+            One WILD celebration!
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
+<section class="countdown-section">
+
+    <h2 class="section-title">
+        UNTIL WE GO WILD
+    </h2>
+
+    <div class="countdown">
+
+        <div class="count">
+            <strong id="days">00</strong>
+            <span>Days</span>
+        </div>
+
+        <div class="count">
+            <strong id="hours">00</strong>
+            <span>Hours</span>
+        </div>
+
+        <div class="count">
+            <strong id="minutes">00</strong>
+            <span>Minutes</span>
+        </div>
+
+        <div class="count">
+            <strong id="seconds">00</strong>
+            <span>Seconds</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EVENT DETAILS
+===================================================== -->
+
+<section class="section-light">
+
+    <h2 class="section-title">
+        JUNGLE DETAILS
+    </h2>
+
+    <p class="section-text">
+        Grab your little explorers and join us
+        for an unforgettable wild adventure!
+    </p>
+
+
+    <div class="details-grid">
+
+
+        <div class="detail">
+
+            <div class="detail-icon">
+                🗓️
+            </div>
+
+            <h3>
+                DATE
+            </h3>
+
+            <p>
+                Saturday<br>
+                October 24, 2026
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <div class="detail-icon">
+                🐾
+            </div>
+
+            <h3>
+                TIME
+            </h3>
+
+            <p>
+                3:00 PM<br>
+                until 7:00 PM
+            </p>
+
+        </div>
+
+
+        <div class="detail">
+
+            <div class="detail-icon">
+                🌴
+            </div>
+
+            <h3>
+                LOCATION
+            </h3>
+
+            <p>
+                The Jungle Garden<br>
+                Your City, Philippines
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RSVP
+===================================================== -->
+
+<section class="rsvp">
+
+    <h2 class="section-title">
+        READY TO GO WILD?
+    </h2>
+
+    <p class="section-text">
+
+        Let us know if you'll be joining
+        our little wild one's big day!
+
+    </p>
+
+
+    <!-- CHANGE RSVP LINK -->
+
+    <a
+        href="https://docs.google.com/forms/d/1a2D3VvdTntyqfdcKiO4_Z7tri1ctCAqYOSeKdgZwCAk/edit"
+        target="_blank"
+        class="rsvp-button">
+
+        🐾 I'M COMING!
+
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-animals">
+        🦁 🐒 🐘 🦒 🐯
+    </div>
+
+    <h2>
+        SEE YOU IN THE JUNGLE!
+    </h2>
+
+    <!-- CHANGE PARENTS -->
+
+    <p>
+        With love, [PARENTS' NAMES]
+    </p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+/* =====================================================
+   OPEN INVITATION
+===================================================== */
+
+const intro = document.getElementById("intro");
+
+intro.addEventListener("click", () => {
+
+    intro.classList.add("hide");
+
+});
+
+
+/* =====================================================
+   COUNTDOWN
+
+   CHANGE THIS DATE
+===================================================== */
+
+const birthdayDate =
+    new Date(
+        "October 24, 2026 15:00:00"
+    ).getTime();
+
+
+function updateCountdown() {
+
+    const now =
+        new Date().getTime();
+
+    const difference =
+        birthdayDate - now;
+
+
+    if (difference <= 0) {
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60 * 24)) /
+            (1000 * 60 * 60)
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference %
+            (1000 * 60 * 60)) /
+            (1000 * 60)
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference %
+            (1000 * 60)) /
+            1000
+        );
+
+
+    document.getElementById("days").textContent =
+        String(days).padStart(2, "0");
+
+    document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+
+    document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+
+    document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+
+}
+
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+</script>
+
+</body>
+</html>
+```
